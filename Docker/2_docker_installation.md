@@ -59,7 +59,3 @@ The Docker daemon binds to a Unix socket, not a TCP port. By default it's the ro
 
 **To install docker deskop**: https://docs.docker.com/desktop/setup/install/linux/ubuntu/#install-docker-desktop
 
-
-
-
-
