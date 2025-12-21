@@ -24,11 +24,11 @@ Before you install Docker Engine for the first time on a new host machine, you n
    ```
 2. Install the Docker packages.
    ```bash
-   sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+   $ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
    ```
 3. Verify that the installation is successful by running the `hello-world` image:
-   ```
-   sudo docker run hello-world
+   ```bash
+   $ sudo docker run hello-world
    ```
 This command downloads a test image and runs it in a container. When the container runs, it prints a confirmation message and exits.
 
@@ -39,20 +39,29 @@ The Docker daemon binds to a Unix socket, not a TCP port. By default it's the ro
 
 - Create the docker group
   ```bash
-  sudo groupadd docker
+  $ sudo groupadd docker
   ```
 - Add your user to the docker group.
-  ```
-  sudo usermod -aG docker $USER
+  ```bash
+  $ sudo usermod -aG docker $USER
   ```
 - Log out and log back in so that your group membership is re-evaluated. If you're running Linux in a virtual machine, it may be necessary to restart the virtual machine for changes to take effect. You can also run the following command to activate the changes to groups:
+  ```bash
+  $ newgrp docker
   ```
-  newgrp docker
+- The Docker service starts automatically after installation. To verify that Docker is running, use:
+  ```bash
+  $ sudo systemctl status docker
+  ```
+- Some systems may have this behavior disabled and will require a manual start:
+  ```bash
+  $ sudo systemctl start docker
   ```
 - Verify that you can run docker commands without sudo.
+  ```bash
+  $ docker run hello-world
   ```
-  docker run hello-world
-  ```
+
 
 ## Installing Docker Desktop
 **NOTE**: If Kernel-based Virtual Machine(KVM) not available in your system then Docker Desktop wouldn't work. Use below command to `egrep -c '(vcm|svm)' /proc/cpuinfo` check kVM. If it returns zero them your kernel does not support KVM. So, installation of Docker Desktop does not work. 
