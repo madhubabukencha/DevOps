@@ -62,6 +62,23 @@ In this example, we will see how to run a simple container using nginx image.
   ```bash
   $ docker rm -f $(docker ps -a -q)
   ```
+- To see logs of a container, use the following command:
+  ```bash
+  $ docker logs <container_id/Names>
+  ```
+- To follow the logs of a container, use the following command:
+  ```bash
+  $ docker logs -f <container_id/Names>
+  ```
+- To interact with a container, use the following command:
+  ```bash
+  $ docker exec -it <container_id/Names> /bin/bash
+  ```
+- To remove container once it execution is completed then use the following command:
+  ```bash
+  $ docker run --rm nginx
+  ```
+  
 
 ## Image of Container Life Cycle
 ![container-life-cycle](images/container-life-cycle.png)
