@@ -6,10 +6,36 @@ Images are self-contained, read-only templates that encapsulate everything neede
 - **Application Code**: Your application code and banary files.
 - **Configuration Files**: Any configuration files needed to run the application.
 
-We can image from a container  but it is not recommended. We should use Dockerfile to create an image. It helps to create a consistent and repeatable environment. Images can be source from:
+> NOTE:
+  We can create an image from a container but it is not recommended. We should use Dockerfile to create an image. It will help us to create a consistent and repeatable environment.
+
+## How to create an image?
 - Dockerhub: It is a public registry where we can find many images.
 - Private Registry: It is a private registry where we can store our images. Eg. Azure Container Registry, Google Container Registry, etc.
 - Build from a Dockerfile: It is a Dockerfile that we can use to build an image.
+  ```bash
+  $ docker build -t <image_name> <path_to_dockerfile>
+  ```
+
+## To remove an image
+- To remove an image, use the following command:
+  ```bash
+  $ docker rmi <image_name>
+  ```
+- To remove all images, use the following command:
+  ```bash
+  $ docker rmi $(docker images -q)
+  ```
+- If any image associated with a container, you can remove it using the following command:
+  ```bash
+  $ docker rmi -f <image_name>
+  ```
+  (or)
+  First stop the container and then remove the image.
+  ```bash
+  $ docker stop <container_name>
+  $ docker rmi <image_name>
+  ```
 
 ## Container Registry
 Container registry is a service that stores and manages container images. Container registries offers following benefits.

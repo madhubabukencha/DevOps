@@ -79,6 +79,16 @@ In this example, we will see how to run a simple container using nginx image.
   $ docker run --rm nginx
   ```
   
+- To pause the container
+  ```bash
+  $ docker pause <container_id/Names>
+  ```
+- To unpause the container
+  ```bash
+  $ docker unpause <container_id/Names>
+  ```
+  
+
 
 ## Image of Container Life Cycle
 ![container-life-cycle](images/container-life-cycle.png)
