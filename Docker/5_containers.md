@@ -4,7 +4,7 @@ In this section, we will learn about containers. Containers are a way to package
 ## What are Images?
 Images are the blueprints for creating containers. They contain everything needed to run an application, including the application code, dependencies, and environment variables.
 
-## How to run simple container?
+## Commonly Used Container Commands
 In this example, we will see how to run a simple container using nginx image.
 - Pull an image from Docker Hub using the following command:
   ```bash
@@ -78,7 +78,6 @@ In this example, we will see how to run a simple container using nginx image.
   ```bash
   $ docker run --rm nginx
   ```
-  
 - To pause the container
   ```bash
   $ docker pause <container_id/Names>
@@ -87,8 +86,6 @@ In this example, we will see how to run a simple container using nginx image.
   ```bash
   $ docker unpause <container_id/Names>
   ```
-  
-
 
 ## Image of Container Life Cycle
 ![container-life-cycle](images/container-life-cycle.png)

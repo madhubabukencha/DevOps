@@ -52,3 +52,28 @@ Dockerhub login is important if you want to push images to Dockerhub. Here are t
   ```bash
   $ docker login -u <username> -p <personal_access_token>
   ```
+
+## Deeper dive into docker images
+-  The docker history (or docker image history) command is a diagnostic tool used to peer
+   inside a Docker image to see exactly how it was built. Because Docker images are built
+   using a layered file system, every instruction in a Dockerfile (like RUN, COPY, or EXPOSE)
+   creates a new layer. This command reveals those layers in the order they were created.
+   ```bash
+   $ docker history <image_name>
+   ```
+   
+   Example output:
+   ```bash
+   IMAGE ID       CREATED        CREATED BY                                      SIZE      COMMENT
+   1234567890ab   2 weeks ago    /bin/sh -c #(nop)  CMD ["python" "app.py"]      0B
+   ```
+
+## Distroless Images
+Distroless images are minimal docker images that contains only the necessary runtime dependencies of
+applications. Unlike traditional images that include an operating system, shell utilities, and other
+binaries, distroless images are stripped down to the absolute minimum. But it harder to work with distroless images as they do not include any shell utilities or other binaries.
+
+**Advantages of Distroless Images**
+-  **Enhanced Security**: Distroless images are less vulnerable to security breaches as they do not include any shell utilities or other binaries.
+-  **Smaller Size**: Faster image pulls and reduced storage requirements.
+- **Improved Performance**: The smaller size and fewer components make distroless images faster to start and run.
