@@ -35,6 +35,7 @@ In this example, we will see how to run a simple container using nginx image.
   $ docker kill <container_id/Names>
   ```
 - To remove the stopped container, use the following command:
+  > NOTE: If you remove your container then all the data you created inside that container will be lost.
   ```bash
   $ docker rm <container_id/Names>
   ```
@@ -77,6 +78,11 @@ In this example, we will see how to run a simple container using nginx image.
 - To remove container once it execution is completed then use the following command:
   ```bash
   $ docker run --rm nginx
+  ```
+- If you combaine docker --rm with -d then it will remove the container once it execution is completed.
+  which means you wouldn't able to see it under `docker ps -a` command.
+  ```bash
+  $ docker run --rm -d nginx
   ```
 - To pause the container
   ```bash

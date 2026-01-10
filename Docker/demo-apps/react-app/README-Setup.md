@@ -1,8 +1,9 @@
 # Dockerizing React Application
-- [How to create react application](#how-to-create-react-application)
-- [Serving application without WebpackDevServer]
-- [How to dockerize react application](#how-to-dockerize-react-application)
+This document will cover how to create a simple react app on local machine. For containerization,
+you can simply refer Dockerfile. It is self explanatory.
 
+- [How to create react application](#how-to-create-react-application)
+- [Serving application without WebpackDevServer](#serving-application-without-webpackdevserver)
 
 ## How to create react application
 - Creating react application using create-react-app
@@ -19,7 +20,7 @@
   $ cd containerize-react-app
   $ npm start
   ```
-  If it runs successfully, you can open your browser and navigate to `http://localhost:3000` to see your react application.
+  If it runs successfully, you can open your browser and navigate to `http://localhost:3000` to see your react application. This will start the WebpackDevServer. which performs the hot reloading. To get stable build, you can use `npm run build` command.
 
 - If you to make small change to default landing page then,
   go to `containerize-react-app/src/App.tsx` and make the changes.
@@ -45,7 +46,7 @@
   const devServer = new WebpackDevServer(serverConfig, compiler);
   ```
 
-# Serving application without WebpackDevServer
+## Serving application without WebpackDevServer
 To create a production build, use npm run build.
 - Run below command to create production build
   ```bash
@@ -88,3 +89,7 @@ To create a production build, use npm run build.
   $ npm run build
   $ npx http-server@14.1.1 build
   ```
+
+## Containerizing React Application
+- For production dockerfile details go through the `Dockerfile`
+- For development dockerfile details go through the `Dockerfile.dev`

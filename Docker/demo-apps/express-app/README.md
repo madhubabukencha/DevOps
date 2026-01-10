@@ -1,5 +1,5 @@
 # Express App
-This document will cover how to create a simple express app and dockerize it. To run this app, you need to have Node.js installed.
+This document will cover how to create a simple express app and dockerize it. To run this app, you need to have Node.js installed. We are going to use Node Package Manager (npm) to install the required packages.
 
 - Initialize a Node.js project, it will create a package.json file
   ```bash
