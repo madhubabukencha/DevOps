@@ -1,19 +1,34 @@
 # Docker Components
-In this section we will see different docker components and how they work.
+In this section, we will see different components of Docker and how they work.
 
 ## Docker Client
-Docker client is a command line tool that allows you to interact with docker daemon. It has two parts:
+Docker client is a **command line tool** that allows you to interact with docker daemon. It has two parts:
 1. Docker CLI: Command line interface that allows you to run docker commands.
 2. Docker API: API that allows you to interact with docker daemon or docker host.
 ---
 ## Docker Host
-Docker host is a machine on which docker daemon is running. It can be a physical machine or a virtual machine. 
-1. REST API: To receive requests from docker client.
-2. Docker Daemon: To process requests from docker client.
-3. Images: Read-only templates used to create containers. The host keeps a local cache of images (pulled from a registry or built locally) to speed up container startup.
-4. Containers: The active, running instances of images. The host provides the process isolation and resource limits (CPU/Memory) for these containers.
-5. Networks: Virtual networking stacks that allow containers to communicate with each other, the host, or the outside world (e.g., Bridge, Host, or Overlay networks).
-6. Volumes: The persistent storage system. Since container filesystems are temporary, the host manages specific directories (usually under /var/lib/docker/volumes) to store data that must survive a container restart
+Docker host is a machine on which the Docker daemon runs. It can be a physical machine or a virtual machine. The Docker host is responsible for managing all Docker resources and orchestrating how they interact.
+
+### Request Flow & Components
+
+**1. REST API**
+The entry point that receives requests from the Docker client. It acts as the gateway between the client commands and the Docker daemon's processing engine.
+
+**2. Docker Daemon**
+The core service that processes all requests coming through the REST API. It acts as the orchestrator, managing all other components and coordinating their interactions.
+
+**3. Images**
+Read-only templates that serve as blueprints for creating containers. The Docker daemon uses the local image cache (pulled from a registry or built locally) to quickly spawn new containers without needing to download them repeatedly.
+
+**4. Containers**
+Living instances spun up from images by the Docker daemon. Each container gets its own isolated process space with dedicated CPU and memory limits, managed by the daemon to ensure resource efficiency and system stability.
+
+**5. Networks**
+Virtual networking infrastructure managed by the daemon that enables containers to communicate with each other, the host machine, and external systems. Supports multiple network types (Bridge, Host, Overlay) for different communication patterns.
+
+**6. Volumes**
+Persistent storage managed by the daemon for data that must survive container termination. The daemon handles the actual storage in dedicated directories (typically `/var/lib/docker/volumes`) and mounts them into containers as needed.
+
 ---
 ## Image Registry
 Image registry is a server that stores and distributes docker images. It can be a private registry or a public registry. Example of public registry is Docker Hub and example of private registry is Google Container Registry.

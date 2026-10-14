@@ -38,3 +38,25 @@ Docker volumes come in three main types:
 ### 3. Anonymous Volumes
 - Automatically created, but without a name that enable reusability.
 - Ideal for temporary data storage.
+
+## Creating Bind Mounts and Volumes
+- **Bind Mounts**: As we know once an application is containerized the files is fixed. If you make any
+    changes to the files, the container will not reflect those changes. To overcome this we use bind mounts. It is especially useful for development environment. Here is our react app example:
+
+    - To make local changes reflect in the container we use bind mounts. 
+    - Simple React app example `Dockerfile.dev`:
+      ```dockerfile
+      # Stage-1
+      FROM node:22-alpine AS build
+
+      WORKDIR /app
+
+      COPY package*.json .
+      RUN npm install
+
+      COPY . .
+
+      CMD ["npm", "start"]
+      ``` 
+
+
