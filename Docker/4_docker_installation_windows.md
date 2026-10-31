@@ -38,6 +38,11 @@ A successful installation will look like this:
    ```bash
    docker --version
    ```
+5. Make sure Docker Destop application is running on Windows. You might see following error if it is not running:
+   ```bash
+   C:\Users\madhubabukencha>docker images
+failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.
+   ```
 ---
 ## Appendix
 ### Enable WSL in Windows Features

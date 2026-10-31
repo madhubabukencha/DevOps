@@ -9,6 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Hey Madhu Welcome to React JS!!! from Docker
+          This is black and white color
         </p>
         <a
           className="App-link"

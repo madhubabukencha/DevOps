@@ -1,4 +1,4 @@
-# Containers
+# Containers and Important Commands
 In this section, we will learn about containers. Containers are a way to package and run applications in a consistent and isolated environment.
 
 ## What are Images?

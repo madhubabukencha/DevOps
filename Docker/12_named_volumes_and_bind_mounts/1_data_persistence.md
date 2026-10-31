@@ -2,7 +2,10 @@
 
 By default, data inside a Docker container is **ephemeral**. This means that when a container is removed, any data created or modified inside that container's writable layer is lost forever.
 
+> **NOTE**: If you simply stops and starts the container data still persists. Data is lost only when container is removed.
+
 ## The Need for Persistent Volumes
+Docker volumes enables data persisting beyond the container lifecycle. They act as managed directories of files, seperate from container's file system, ensuring your data remains safe and accessible.
 
 To address the limitations of ephemeral storage, Docker provides mechanisms like **Volumes** and **Bind Mounts**. Here is why they are essential:
 
@@ -38,25 +41,3 @@ Docker volumes come in three main types:
 ### 3. Anonymous Volumes
 - Automatically created, but without a name that enable reusability.
 - Ideal for temporary data storage.
-
-## Creating Bind Mounts and Volumes
-- **Bind Mounts**: As we know once an application is containerized the files is fixed. If you make any
-    changes to the files, the container will not reflect those changes. To overcome this we use bind mounts. It is especially useful for development environment. Here is our react app example:
-
-    - To make local changes reflect in the container we use bind mounts. 
-    - Simple React app example `Dockerfile.dev`:
-      ```dockerfile
-      # Stage-1
-      FROM node:22-alpine AS build
-
-      WORKDIR /app
-
-      COPY package*.json .
-      RUN npm install
-
-      COPY . .
-
-      CMD ["npm", "start"]
-      ``` 
-
-
