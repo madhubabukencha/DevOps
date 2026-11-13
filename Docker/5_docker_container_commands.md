@@ -92,6 +92,10 @@ In this example, we will see how to run a simple container using nginx image.
   ```bash
   $ docker unpause <container_id/Names>
   ```
+- To create an image from the container
+  ```bash
+  $ docker commit --author <author-name(optional arg)> --message <message (optional arg)> <container_name_or_id> <new_image_name>:<tag>
+  ```
 
 ## Image of Container Life Cycle
 ![container-life-cycle](images/container-life-cycle.png)
