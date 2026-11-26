@@ -10,20 +10,22 @@ In simple terms:
 
 **Below is the example from our demo project:**
 - We are going to use `DevOps\Docker\demo-apps\react-app\containerize-react-app\Dockerfile.dev` file to demonstrate this example.
-- We bind volumes from local machine to container using `-v`.
 
-    ```bash
-    $ docker run -d -p <host_port>:<container_port> -v <directory_on_the_host_machine>:<directory_on_container_filesystem> --name <container_name> <image_name>
-    ```
+- We bind volumes from local machine to container using `-v`.
+  ```bash
+  $ docker run -d -p <host_port>:<container_port> -v <directory_on_the_host_machine>:<directory_on_container_filesystem> --name <container_name> <image_name>
+  ```
+
 - Now we run demo project with bind volumes. These helps to automatically reflect changes.
-    - Build an docker image first
-      ```bash
-      $ cd D:\DevOps\Docker\demo-apps\react-app\containerize-react-app
-      $ docker build -t react-app: dev -f Dockerfile.dev .
-    - Now run the image with bind volumes. Webpack/Watchpack polls for file changes by passing `-e WATCHPACK_POLLING=true` especially on windows.
-      ```bash
-      $ docker run --rm -d -p 3000:3000 -e WATCHPACK_POLLING=true -v ./public:/app/public -v ./src:/app/src react-app:dev
-      ```
+  - Build an docker image first
+    ```bash
+    $ cd D:\DevOps\Docker\demo-apps\react-app\containerize-react-app
+    $ docker build -t react-app: dev -f Dockerfile.dev .
+    ```
+  - Now run the image with bind volumes. Webpack/Watchpack polls for file changes by passing `-e WATCHPACK_POLLING=true` especially on windows.
+    ```bash
+    $ docker run --rm -d -p 3000:3000 -e WATCHPACK_POLLING=true -v ./public:/app/public -v ./src:/app/src react-app:dev
+    ```
 
 ## Trouble Shooting
 - On Windows, Docker runs Linux containers via WSL2 / Hyper-V.
